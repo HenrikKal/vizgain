@@ -10,5 +10,5 @@ npm install
 ### How to run
 ```
 1. start an Android/iOS emulator, or connect a device
-2. run: react-native run-android (OR ios)
+2. in project folder, run: react-native run-android (OR ios)
 ```
