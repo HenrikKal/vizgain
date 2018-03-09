@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {View, Text, TextInput, StyleSheet} from 'react-native';
 import ProgressInput from './ProgressInput';
 
-class Workout extends Component<props> {
+ezport default class Workout extends Component<props> {
 
   render() {
     return(
@@ -21,5 +21,3 @@ class Workout extends Component<props> {
     );
   }
 }
-
-export default Workout;

@@ -9,6 +9,7 @@ import {
 import ProgressInput from './Components/ProgressInput';
 import {Router, Scene} from 'react-native-router-flux';
 import Workout from './Components/Workout';
+import Home from '.Components/Home';
 
 
 // issue: https://github.com/facebook/react-native/issues/18175
@@ -28,12 +29,10 @@ export default class App extends Component<Props> {
 
       <Router titleStyle={{alignSelf:'center'}}>
         <Scene key='root'>
-          <Scene key='pushw' component={Workout} title="Pushw" name="Push">
-          </Scene>
-          <Scene key='pullw' component={Workout} title="Pullw" name="Pull">
-
-          </Scene>
-
+          <Scene key='home' component={Hone} title="Home"/>
+          <Scene key='pushw' component={Workout} title="Push" name="Push"/>
+          <Scene key='pullw' component={Workout} title="Pull" name="Pull"/>
+          <Scene key='legw' component={Workout} title="Legs" name="Legs"/>
         </Scene>
       </Router>
     );
@@ -55,8 +54,6 @@ const styles = StyleSheet.create({
   },
 
   progress: {
-
-
 
   },
 });
