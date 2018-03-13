@@ -6,6 +6,8 @@ export default class Home extends Component {
 
 
   render() {
+
+    return (
     <View>
 
     <TouchableOpacity style={styles.button} onPress={() => {Actions.pushw}}>
@@ -19,6 +21,7 @@ export default class Home extends Component {
     </TouchableOpacity>
 
     </View>
+  );
 
   }
 
