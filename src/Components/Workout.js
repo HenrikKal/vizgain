@@ -10,7 +10,7 @@ export default class Workout extends Component<props> {
     this.createNewExercise = this.createNewExercise.bind(this);
 
     this.state = {
-      data: [{'key': 1, 'name': "yo"}]
+      data: [{'key': 'a1', 'name': "yo"}, {'key': 'a2', 'name': "hehe"}]
     };
   }
 
@@ -18,8 +18,10 @@ export default class Workout extends Component<props> {
 
   createNewExercise(){
     console.log("new exercise");
+    const d = this.state.data;
+    d.push({'key': 'a3', 'name': "hehe"});
     this.setState({
-      data: data.push({'key: 2, name': "hehe"})
+      data: d
     });
 
 
@@ -31,7 +33,7 @@ export default class Workout extends Component<props> {
     return(
 
       <View style={styles.container}>
-        <List style={styles.list}>
+        <List containerStyle={styles.list}>
           <FlatList
             data={this.state.data}
           renderItem={({item}) => (
@@ -60,20 +62,19 @@ export default class Workout extends Component<props> {
 const styles = StyleSheet.create({
 
   container: {
-    flex: 1,
     flexDirection: 'column',
     alignSelf: 'center',
 
   },
 
   list: {
-    flex: 2,
+    height: 100,
+    width: 100,
 
 
   },
 
   button: {
-    flex: 1,
     width: 40,
     height: 40,
     backgroundColor: 'powderblue',
