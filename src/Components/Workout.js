@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {View, Text, TextInput, StyleSheet, TouchableOpacity, FlatList} from 'react-native';
 import {List, ListItem} from 'react-native-elements';
+import {Actions} from 'react-native-router-flux';
 
 export default class Workout extends Component<props> {
 
@@ -8,6 +9,7 @@ export default class Workout extends Component<props> {
   constructor(){
     super();
     this.createNewExercise = this.createNewExercise.bind(this);
+    this.gogo = this.gogo.bind(this);
 
     this.state = {
       data: [{'key': 'a1', 'name': "yo"}, {'key': 'a2', 'name': "hehe"}]
@@ -28,6 +30,12 @@ export default class Workout extends Component<props> {
 
   }
 
+  gogo(){
+    console.log("gogo");
+    Actions.openlistitem;
+
+  }
+
 
   render() {
     return(
@@ -37,7 +45,7 @@ export default class Workout extends Component<props> {
           <FlatList
             data={this.state.data}
           renderItem={({item}) => (
-            <ListItem title={item.name} />
+            <ListItem button title={item.name} onPress={() => {Actions.openlistitem({exercise: item.name})}}/>
           )}/>
         </List>
         <Text>

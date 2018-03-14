@@ -9,7 +9,7 @@ export default class Exercise extends Component<props> {
 
       <View>
         <Text>
-          {this.props.name}
+          {this.props.exercise}
         </Text>
 
       <ProgressInput/>
