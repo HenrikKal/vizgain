@@ -9,7 +9,6 @@ export default class Workout extends Component<props> {
   constructor(){
     super();
     this.createNewExercise = this.createNewExercise.bind(this);
-    this.gogo = this.gogo.bind(this);
 
     this.state = {
       data: [{'key': 'a1', 'name': "yo"}, {'key': 'a2', 'name': "hehe"}]
@@ -21,7 +20,8 @@ export default class Workout extends Component<props> {
   createNewExercise(){
     console.log("new exercise");
     const d = this.state.data;
-    d.push({'key': 'a3', 'name': "hehe"});
+
+    d.push({'key': 'a3', 'name': "zup"});
     this.setState({
       data: d
     });
@@ -30,11 +30,7 @@ export default class Workout extends Component<props> {
 
   }
 
-  gogo(){
-    console.log("gogo");
-    Actions.openlistitem;
 
-  }
 
 
   render() {
@@ -44,18 +40,20 @@ export default class Workout extends Component<props> {
         <List containerStyle={styles.list}>
           <FlatList
             data={this.state.data}
+            extraData={this.state}
           renderItem={({item}) => (
             <ListItem button title={item.name} onPress={() => {Actions.openlistitem({exercise: item.name})}}/>
           )}/>
         </List>
-        <Text>
-          {this.props.name}
-          {'Add an exercise'}
-        </Text>
+        <View style={styles.buttonContainer}>
+          <Text>
+            Add an exercise
+          </Text>
 
-        <TouchableOpacity style={styles.button} onPress={this.createNewExercise}>
-          <Text style={{color:'white'}}>++</Text>
-        </TouchableOpacity>
+          <TouchableOpacity style={styles.button} onPress={this.createNewExercise}>
+            <Text style={styles.buttonText}>++</Text>
+          </TouchableOpacity>
+        </View>
 
       </View>
 
@@ -76,11 +74,26 @@ const styles = StyleSheet.create({
   },
 
   list: {
-    height: 100,
-    width: 100,
+    flex:4,
+    width: 300,
 
 
   },
+
+  buttonContainer: {
+    flexDirection: 'column',
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+
+  },
+
+  buttonText: {
+    color:'white',
+    alignSelf: 'center',
+
+  },
+
 
   button: {
     width: 40,
