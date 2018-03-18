@@ -1,8 +1,23 @@
 import React, {Component} from 'react';
 import {TouchableOpacity, Text, View, StyleSheet} from 'react-native';
 import {Actions} from 'react-native-router-flux';
+import PieChart from './PieChart';
+
 
 export default class Home extends Component {
+
+  constructor(){
+    super();
+
+    this.data = [
+    {"number":  8, "name": 'Fun activities'},
+    {"number": 7, "name": 'Dog'},
+    {"number": 16, "name": 'Food'},
+    {"number": 23, "name": 'Car'},
+    {"number": 42, "name": 'Rent'},
+    {"number":  4, "name": 'Misc'},
+  ];
+  }
 
 
   render() {
@@ -19,6 +34,7 @@ export default class Home extends Component {
     <TouchableOpacity style={styles.button} onPress={Actions.legw}>
       <Text>Leg workout</Text>
     </TouchableOpacity>
+    <PieChart width={100} height={100} data={this.data}></PieChart>
 
     </View>
   );
