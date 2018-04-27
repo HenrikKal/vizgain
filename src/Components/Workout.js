@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {View, Text, TextInput, StyleSheet, TouchableOpacity, FlatList} from 'react-native';
 import {List, ListItem} from 'react-native-elements';
 import {Actions} from 'react-native-router-flux';
+import NewExercise from './NewExercise';
+
 
 export default class Workout extends Component<props> {
 
@@ -37,6 +39,10 @@ export default class Workout extends Component<props> {
     return(
 
       <View style={styles.container}>
+        <Text>{
+          new Date().getDay() // to be replaced by week
+        }
+      </Text>
         <List containerStyle={styles.list}>
           <FlatList
             data={this.state.data}
@@ -50,7 +56,7 @@ export default class Workout extends Component<props> {
             Add an exercise
           </Text>
 
-          <TouchableOpacity style={styles.button} onPress={this.createNewExercise}>
+          <TouchableOpacity style={styles.button} onPress={() => {Actions.new_exercise()}}>
             <Text style={styles.buttonText}>++</Text>
           </TouchableOpacity>
         </View>

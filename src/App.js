@@ -11,6 +11,8 @@ import {Router, Scene} from 'react-native-router-flux';
 import Workout from './Components/Workout';
 import Home from './Components/Home';
 import Exercise from './Components/Exercise';
+import NewExercise from './Components/NewExercise';
+
 
 
 // issue: https://github.com/facebook/react-native/issues/18175
@@ -35,6 +37,7 @@ export default class App extends Component<Props> {
           <Scene key='pullw' component={Workout} title="Pull" name="Pull"/>
           <Scene key='legw' component={Workout} title="Legs" name="Legs"/>
           <Scene key='openlistitem' component={Exercise} title="openlistitem"/>
+          <Scene key='new_exercise' component={NewExercise} title="New Exercise"/>
 
         </Scene>
       </Router>
