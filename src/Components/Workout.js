@@ -3,6 +3,7 @@ import {View, Text, TextInput, StyleSheet, TouchableOpacity, FlatList} from 'rea
 import {List, ListItem} from 'react-native-elements';
 import {Actions} from 'react-native-router-flux';
 import NewExercise from './NewExercise';
+import Database from '../Database.js';
 
 
 export default class Workout extends Component<props> {
@@ -15,6 +16,10 @@ export default class Workout extends Component<props> {
     this.state = {
       data: [{'key': 'a1', 'name': "yo"}, {'key': 'a2', 'name': "hehe"}]
     };
+
+    Database.load();
+
+
   }
 
 
