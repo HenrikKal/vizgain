@@ -16,9 +16,8 @@ class Database {
         }
       });
 
-      console.log("LULL");
 
-      this.dbRef = firebase.firestore().collection('users');
+      this.dbRef = firebase.firestore().collection('exercises');
       this.dbRef.onSnapshot(this.onCollectionUpdate);
   }
 
@@ -27,6 +26,7 @@ class Database {
 
     snapshot.forEach((doc) => {
         console.log(doc.data());
+        console.log(doc.id);
 
       });
 
@@ -39,6 +39,10 @@ class Database {
   load(){
 
     console.log("LOAD");
+  }
+
+  addExercise(json){
+    this.dbRef.add(json);
   }
 
 

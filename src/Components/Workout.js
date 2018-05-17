@@ -11,31 +11,36 @@ export default class Workout extends Component<props> {
 
   constructor(){
     super();
-    this.createNewExercise = this.createNewExercise.bind(this);
 
     this.state = {
-      data: [{'key': 'a1', 'name': "yo"}, {'key': 'a2', 'name': "hehe"}]
+      data: []
     };
 
-    Database.load();
+    this.received = this.received.bind(this);
+    Database.dbRef.onSnapshot(this.received);
 
 
   }
 
 
+  received = (snapshot) =>{
+    console.log("rec");
 
-  createNewExercise(){
-    console.log("new exercise");
-    const d = this.state.data;
+    let exerciseList = [];
+    snapshot.forEach((doc) => {
+        console.log(doc.data());
+        console.log(doc.id);
 
-    d.push({'key': 'a3', 'name': "zup"});
+        exerciseList.push({'key': doc.id, 'name': doc.data().exerciseName});
+
+      });
+
     this.setState({
-      data: d
+      data: exerciseList
     });
 
-
-
   }
+
 
 
 
